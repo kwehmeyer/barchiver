@@ -25,3 +25,8 @@ graph TD
 - [ ] Allow for generated playlist covers
 - [ ] ???
 - [ ] Profit
+
+
+## Personal Goals
+
+For this project I wanted to develop in python in the open. I also wanted to more strictly follow TDD.
