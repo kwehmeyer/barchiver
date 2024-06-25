@@ -1,0 +1,30 @@
+[project]
+name = "barchiver"
+version = "0.1.0"
+description = "Generate historical playlists based on your listening habits."
+authors = [
+    { name = "Kahlil Wehmeyer", email = "hello@kahlil.dev" }
+]
+dependencies = [
+    "spotipy>=2.24.0",
+    "pydantic-settings>=2.3.4",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "pre-commit>=3.7.1",
+    "pytest>=8.2.2",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/barchiver"]
