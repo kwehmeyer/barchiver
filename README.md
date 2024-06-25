@@ -31,7 +31,7 @@ graph TD
 
 ## Known Limitations
 ### Spotify
-- The Spotify API currently does not allow for moving a group of playlists into a folder. An operation which you can do on Mobile, Web, Desktop. Why can't the API do this? I don't have a <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/68WU2qbFtn7lcgUijVbRs3?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> clue.
+- The Spotify API currently does not allow for moving a group of playlists into a folder. An operation which you can do on Mobile, Web, Desktop. Why can't the API do this? I don't have a clue.
 
 ## Personal Goals
 
