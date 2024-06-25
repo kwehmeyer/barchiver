@@ -32,6 +32,7 @@ graph TD
 ## Known Limitations
 ### Spotify
 - The Spotify API currently does not allow for moving a group of playlists into a folder. An operation which you can do on Mobile, Web, Desktop. Why can't the API do this? I don't have a clue.
+- The API doesn't allow you to truly `delete` a playlist. Only "unfollowing".
 
 ## Personal Goals
 

@@ -1,8 +1,9 @@
 """Respositories for the Barchiver application."""
 from spotipy import Spotify
-from .models import LikedSong
+from .models import LikedSong, Playlist
 from loguru import logger
 import pandas as pd
+from .configuration import BARCHIVER_SETTINGS
 
 
 class UserRepository:
@@ -56,3 +57,32 @@ class UserRepository:
             .reset_index()
             .rename(columns={0: "track_ids"})
         )
+
+    def get_barchiver_playlists(
+        self, filter_term=BARCHIVER_SETTINGS.playlist_signature
+    ):
+        initial_call = self.sp.current_user_playlists()
+        if initial_call.get("total") <= 50:
+            return list(
+                filter(
+                    lambda x: filter_term in x["description"], initial_call.get("items")
+                )
+            )
+        results = []
+        for idx in range(0, initial_call.get("total"), 50):
+            results.extend(
+                list(
+                    filter(
+                        lambda x: filter_term in x["description"],
+                        self.sp.current_user_playlists(offset=idx).get("items"),
+                    )
+                )
+            )
+        return [Playlist(**playlist) for playlist in results]
+
+    def delete_barchiver_playlists(
+        self, filter_term=BARCHIVER_SETTINGS.playlist_signature
+    ) -> None:
+        playlists = self.get_barchiver_playlists(filter_term=filter_term)
+        for playlist in playlists:
+            self.sp.current_user_unfollow_playlist(playlist.id)

@@ -7,3 +7,8 @@ class BArchiverConfig(BaseSettings):
 
     spotify_client_id: str = ""
     spotify_client_secret: str = ""
+
+    playlist_signature: str = "Made with 💓 by barchiver"
+
+
+BARCHIVER_SETTINGS = BArchiverConfig()

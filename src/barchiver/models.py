@@ -1,6 +1,7 @@
 """Models"""
 from pydantic import BaseModel, HttpUrl
-from typing import List, Optional
+from typing import List, Optional, Any
+from .configuration import BARCHIVER_SETTINGS
 
 
 class Artist(BaseModel):
@@ -51,3 +52,29 @@ class Track(BaseModel):
 class LikedSong(BaseModel):
     added_at: str
     track: Track
+
+
+class Owner(BaseModel):
+    display_name: str
+    external_urls: dict[str, HttpUrl]
+    href: HttpUrl
+    id: str
+    type: str
+    uri: str
+
+
+class Playlist(BaseModel):
+    collaborative: bool
+    description: str = BARCHIVER_SETTINGS.playlist_signature
+    external_urls: dict[str, HttpUrl]
+    href: HttpUrl
+    id: str
+    images: Optional[Any]
+    name: str
+    owner: Owner
+    primary_color: Optional[Any]
+    public: bool
+    snapshot_id: str
+    tracks: Optional[dict]
+    type: str
+    uri: str
