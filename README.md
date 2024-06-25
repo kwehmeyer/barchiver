@@ -1,8 +1,11 @@
 # barchiver
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![Rye](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/mitsuhiko/rye/main/artwork/badge.json)](https://rye-up.com)
+
 
 The goal of this project is to provide a simple way to generate archival playlists for your music library.
 
-```merdmaid
+```mermaid
 graph TD
     A["Liked Songs"] --> B["2024"]
     A["Liked Songs"] --> C["2023"]
