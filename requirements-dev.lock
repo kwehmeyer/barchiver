@@ -62,9 +62,13 @@ nest-asyncio==1.6.0
     # via ipykernel
 nodeenv==1.9.1
     # via pre-commit
+numpy==2.0.0
+    # via pandas
 packaging==24.1
     # via ipykernel
     # via pytest
+pandas==2.2.2
+    # via barchiver
 parso==0.8.4
     # via jedi
 pexpect==4.9.0
@@ -98,9 +102,12 @@ pytest-cov==5.0.0
 pytest-xdist==3.6.1
 python-dateutil==2.9.0.post0
     # via jupyter-client
+    # via pandas
 python-dotenv==1.0.1
     # via barchiver
     # via pydantic-settings
+pytz==2024.1
+    # via pandas
 pyyaml==6.0.1
     # via pre-commit
 pyzmq==26.0.3
@@ -130,6 +137,8 @@ traitlets==5.14.3
 typing-extensions==4.12.2
     # via pydantic
     # via pydantic-core
+tzdata==2024.1
+    # via pandas
 urllib3==2.2.2
     # via requests
     # via spotipy

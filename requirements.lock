@@ -19,24 +19,36 @@ idna==3.7
     # via requests
 loguru==0.7.2
     # via barchiver
+numpy==2.0.0
+    # via pandas
+pandas==2.2.2
+    # via barchiver
 pydantic==2.7.4
     # via pydantic-settings
 pydantic-core==2.18.4
     # via pydantic
 pydantic-settings==2.3.4
     # via barchiver
+python-dateutil==2.9.0.post0
+    # via pandas
 python-dotenv==1.0.1
     # via barchiver
     # via pydantic-settings
+pytz==2024.1
+    # via pandas
 redis==5.0.6
     # via spotipy
 requests==2.32.3
     # via spotipy
+six==1.16.0
+    # via python-dateutil
 spotipy==2.24.0
     # via barchiver
 typing-extensions==4.12.2
     # via pydantic
     # via pydantic-core
+tzdata==2024.1
+    # via pandas
 urllib3==2.2.2
     # via requests
     # via spotipy
