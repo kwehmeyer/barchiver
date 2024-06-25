@@ -30,3 +30,6 @@ graph TD
 ## Personal Goals
 
 For this project I wanted to develop in python in the open. I also wanted to more strictly follow TDD.
+
+### Useful links for development
+[Spotify API](https://developer.spotify.com/documentation/web-api/)
