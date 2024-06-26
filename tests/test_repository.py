@@ -2,6 +2,7 @@ from barchiver.repository import UserRepository
 from pandas import DataFrame
 from barchiver.models import LikedSong
 from conftest import sp
+import pandas as pd
 from barchiver.models import Playlist
 
 
@@ -55,3 +56,29 @@ class TestUserRepository:
         user_repo.delete_barchiver_playlists(filter_term="barchiver_test")
         playlists = user_repo.get_barchiver_playlists(filter_term="barchiver_test")
         assert len(playlists) == 0
+
+    def test_create_archival_playlists(self, mocker):
+        """Test if UserRepository can create archival playlists"""
+        user_repo = UserRepository(sp)
+        mocker.patch.object(
+            user_repo,
+            "get_tracks_month_year",
+            return_value=pd.DataFrame(
+                {
+                    "year": [2022, 2022],
+                    "month": [1, 2],
+                    "track_ids": [
+                        ["track_id_1", "track_id_2"],
+                        ["track_id_3", "track_id_4"],
+                    ],
+                }
+            ),
+        )
+        mocker.patch.object(user_repo.sp, "user_playlist_create")
+        mocker.patch.object(user_repo.sp, "playlist_add_items")
+
+        user_repo.create_archival_playlists()
+
+        assert user_repo.get_tracks_month_year.call_count == 1
+        assert user_repo.sp.user_playlist_create.call_count == 2
+        assert user_repo.sp.playlist_add_items.call_count == 2

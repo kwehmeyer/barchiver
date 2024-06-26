@@ -97,8 +97,10 @@ pygments==2.18.0
     # via ipython
 pytest==8.2.2
     # via pytest-cov
+    # via pytest-mock
     # via pytest-xdist
 pytest-cov==5.0.0
+pytest-mock==3.14.0
 pytest-xdist==3.6.1
 python-dateutil==2.9.0.post0
     # via jupyter-client

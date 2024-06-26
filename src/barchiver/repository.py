@@ -3,6 +3,7 @@ from spotipy import Spotify
 from .models import LikedSong, Playlist
 from loguru import logger
 import pandas as pd
+import calendar
 from .configuration import BARCHIVER_SETTINGS
 
 
@@ -86,3 +87,23 @@ class UserRepository:
         playlists = self.get_barchiver_playlists(filter_term=filter_term)
         for playlist in playlists:
             self.sp.current_user_unfollow_playlist(playlist.id)
+
+    def create_archival_playlists(self):
+        for idx, row in self.get_tracks_month_year().iterrows():
+            month = calendar.month_name[int(row["month"])]
+            playlist_name = f"{month} {row["year"]}"
+            ids = row[
+                "track_ids"
+            ]  # Is this stupid? Yes, does it break without it? Yes. Do I know why? no.
+            playlist = self.sp.user_playlist_create(
+                user=id,
+                name=playlist_name,
+                public=False,
+                description=BARCHIVER_SETTINGS.playlist_signature,
+            )
+            # TODO: can we speed this up? maybe a map or apply?
+            # fuckit we ball - sort it out later
+            for i in range(0, len(ids), 100):
+                self.sp.playlist_add_items(
+                    playlist_id=playlist["id"], items=ids[i : i + 100]
+                )

@@ -38,5 +38,9 @@ graph TD
 
 For this project I wanted to develop in python in the open. I also wanted to more strictly follow TDD.
 
-### Useful links for development
+### Useful stuff for development
+
+> [!CAUTION]
+> Please don't use the ✨**amazing**🤩 Desktop Client when testing. The WebUI is far more responsive.
+
 [Spotify API](https://developer.spotify.com/documentation/web-api/)
