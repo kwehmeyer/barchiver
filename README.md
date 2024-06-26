@@ -32,6 +32,10 @@ user_repo = UserRepository(sp)
 user_repo.create_archival_playlists()
 ```
 
+## Motivation
+I have kept a personal archive of my music for a couple years now, but sometimes I forget to create a playlist. It's nice to be able to go back in your listening history to re-familiarize yourself with the music you were listening to at a certain time. This project is a way to automate that process.
+Spotify does allow you to scroll through your liked songs by time, but it often feels like an infinite stream. This aims to better compartmentalize your listening history.
+
 ## Roadmap
 
 - [ ] Create a simple CLI
