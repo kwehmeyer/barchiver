@@ -16,6 +16,22 @@ graph TD
     B --> B4["April 2024"]
 ```
 
+# Usage
+```python
+import os
+import spotipy
+from spotipy.oauth2 import SpotifyOAuth
+from barchiver.repository import UserRepository
+os.environ["SPOTIPY_CLIENT_ID"] = ""
+os.environ["SPOTIPY_CLIENT_SECRET"] = ""
+os.environ["SPOTIPY_REDIRECT_URI"] = "http://localhost:8888/callback"
+scope = 'user-library-read, playlist-modify-public, playlist-modify-private, playlist-read-private'
+sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope))
+user_repo = UserRepository(sp)
+
+user_repo.create_archival_playlists()
+```
+
 ## Roadmap
 
 - [ ] Create a simple CLI
@@ -28,6 +44,7 @@ graph TD
 - [ ] Allow for generated playlist covers
 - [ ] ???
 - [ ] Profit
+
 
 ## Known Limitations
 ### Spotify
