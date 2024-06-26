@@ -43,4 +43,9 @@ For this project I wanted to develop in python in the open. I also wanted to mor
 > [!CAUTION]
 > Please don't use the ✨**amazing**🤩 Desktop Client when testing. The WebUI is far more responsive.
 
+Scopes
+```python
+scope = 'user-library-read, playlist-modify-public, playlist-modify-private, playlist-read-private'
+```
+
 [Spotify API](https://developer.spotify.com/documentation/web-api/)

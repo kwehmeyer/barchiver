@@ -11,6 +11,7 @@ class UserRepository:
     """User repository for the Barchiver application."""
 
     _liked_tracks: list[LikedSong] = []
+    playlist_privacy: bool = False
 
     def __init__(self, sp: Spotify) -> None:
         """Initialize the user repository."""
@@ -99,7 +100,7 @@ class UserRepository:
             playlist = self.sp.user_playlist_create(
                 user=self.sp.me().get("id"),
                 name=playlist_name,
-                public=False,
+                public=self.playlist_privacy,
                 description=BARCHIVER_SETTINGS.playlist_signature,
             )
             # TODO: can we speed this up? maybe a map or apply?
