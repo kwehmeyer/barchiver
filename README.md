@@ -35,8 +35,8 @@ user_repo.create_archival_playlists()
 ## Roadmap
 
 - [ ] Create a simple CLI
-- [ ] Work with Spotify API
-- [ ] Generate playlists based on year/month
+- [x] Work with Spotify API
+- [x] Generate playlists based on year/month
 - [ ] Create a TUI and a installable package
 - [ ] Specify playlist naming/structure
 - [ ] Integrate Apple Music
