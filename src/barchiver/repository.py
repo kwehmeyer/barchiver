@@ -19,6 +19,7 @@ class UserRepository:
     @property
     def get_liked_tracks(self) -> list:
         """Get the liked tracks for the user."""
+        # Todo, cache? parallelize? This is slow
         if self._liked_tracks:
             return self._liked_tracks
         initial_call = self.sp.current_user_saved_tracks()
@@ -89,14 +90,14 @@ class UserRepository:
             self.sp.current_user_unfollow_playlist(playlist.id)
 
     def create_archival_playlists(self):
-        for idx, row in self.get_tracks_month_year().iterrows():
+        for _, row in self.get_tracks_month_year().iterrows():
             month = calendar.month_name[int(row["month"])]
             playlist_name = f"{month} {row["year"]}"
             ids = row[
                 "track_ids"
             ]  # Is this stupid? Yes, does it break without it? Yes. Do I know why? no.
             playlist = self.sp.user_playlist_create(
-                user=id,
+                user=self.sp.me().get("id"),
                 name=playlist_name,
                 public=False,
                 description=BARCHIVER_SETTINGS.playlist_signature,
